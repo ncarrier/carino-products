@@ -30,6 +30,7 @@ TARGET_IMAGE_FORMAT := ext2
 TARGET_IMAGE_OPTIONS := --size 60M
 
 custom.busybox.config := $(OBSTINATION_CONFIG_DIR)/busybox.config
+custom.linux.config := $(OBSTINATION_CONFIG_DIR)/linux.config
 
 # TODO reenable when logwrapping will be useful
 #RELOG_FORCE_DEFAULT_OUTPUT_TO := /dev/ulog_main
