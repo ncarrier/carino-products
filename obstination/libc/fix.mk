@@ -32,7 +32,5 @@ LOCAL_CLEAN_FILES += $(_libc_fix_missing_staging)
 # Make sure this is the first module built
 TARGET_GLOBAL_PREREQUISITES += $(_libc_fix_build_dir)/$(LOCAL_MODULE_FILENAME)
 
-$(warning $(TARGET_GLOBAL_PREREQUISITES))
-
 # Prebuilt so it is always enabled and does not appear in config
 include $(BUILD_PREBUILT)
