@@ -30,9 +30,13 @@ TARGET_IMAGE_FORMAT := ext2
 TARGET_IMAGE_OPTIONS := --size 60M
 
 custom.busybox.config := $(OBSTINATION_CONFIG_DIR)/busybox.config
-custom.linux.config := $(OBSTINATION_CONFIG_DIR)/linux.config
+LINUX_CONFIG_FILE := $(OBSTINATION_CONFIG_DIR)/linux.config
+
+TARGET_LINUX_GENERATE_UIMAGE :=1
+LINUX_DEFAULT_CONFIG_TARGET := sunxi_defconfig
 
 # TODO reenable when logwrapping will be useful
 #RELOG_FORCE_DEFAULT_OUTPUT_TO := /dev/ulog_main
 #RELOG_FORCE_DEFAULT_ERROR_TO := /dev/ulog_main
 
+TARGET_LIBC_FIX := $(OBSTINATION_CONFIG_DIR)/../libc/fix.mk
