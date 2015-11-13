@@ -22,7 +22,7 @@ _libc_fix_build_dir := $(call local-get-build-dir)
 
 $(_libc_fix_missing_staging):
 	(target=$$($(TARGET_CROSS)gcc -print-file-name=$(notdir $@)); \
-	$(PRIVATE_PATH)/../../../../tools/install.py $@ $${target})
+	$(PRIVATE_PATH)/install.py $@ $${target})
 
 # Register 'installed' file in build system
 $(_libc_fix_build_dir)/$(LOCAL_MODULE_FILENAME): $(_libc_fix_missing_staging)
