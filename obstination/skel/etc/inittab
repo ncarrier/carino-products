@@ -4,7 +4,7 @@
 ::askfirst:-/bin/sh
 ::respawn:/sbin/syslogd -nK
 /dev/null::respawn:/sbin/hostapd /etc/hostapd.conf
-/dev/kmsg::respawn:/sbin/adbd
+/dev/kmsg::respawn:/usr/bin/adbd
 /dev/null::respawn:/sbin/udhcpd -f /etc/udhcpd.conf -S
 /dev/kmsg::respawn:/bin/nc -kl -p28259 -e /bin/car
 /dev/kmsg::respawn:/sbin/httpd -v -h /var/www/ -f
