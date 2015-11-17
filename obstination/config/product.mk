@@ -5,6 +5,7 @@
 ###############################################################################
 
 OBSTINATION_CONFIG_DIR := $(call my-dir)
+COMMON_DIR := $(OBSTINATION_CONFIG_DIR)/../../common
 
 TARGET_OS := linux
 # TODO modify alchemy to be able to avoid parrot specific things here
@@ -16,6 +17,7 @@ TARGET_CPU := p7
 TARGET_CROSS := /usr/bin/arm-linux-gnueabi-
 
 # Add Base skeleton
+TARGET_SKEL_DIRS += $(COMMON_DIR)/../skel
 TARGET_SKEL_DIRS += $(OBSTINATION_CONFIG_DIR)/../skel
 
 # TODO understand the next two
@@ -29,7 +31,7 @@ TARGET_ADD_BUILDID_SECTION := 1
 TARGET_IMAGE_FORMAT := ext2
 TARGET_IMAGE_OPTIONS := --size 60M
 
-custom.busybox.config := $(OBSTINATION_CONFIG_DIR)/busybox.config
+custom.busybox.config := $(COMMON_DIR)/config/busybox.config
 LINUX_CONFIG_FILE := $(OBSTINATION_CONFIG_DIR)/linux.config
 
 TARGET_LINUX_GENERATE_UIMAGE :=1
