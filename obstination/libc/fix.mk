@@ -13,7 +13,8 @@ _libc_fix_missing := \
 	libc.so.6 \
 	libstdc++.so.6 \
 	ld-linux.so.3 \
-	libdl.so.2
+	libdl.so.2 \
+	librt.so.1
 
 _libc_fix_missing_staging := \
 	$(foreach __f,$(_libc_fix_missing),$(TARGET_OUT_STAGING)/lib/$(__f) \
