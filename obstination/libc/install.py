@@ -4,13 +4,14 @@ from os.path import join, dirname, islink, basename
 from os import makedirs, readlink, symlink
 from shutil import copyfile
 from sys import argv
+import errno
 
 def makedirs_no_eexist(path):
     """create a directory without exception in case it already exists"""
     try:
         makedirs(path)
     except OSError as e:
-        if e.errno != 17:
+        if e.errno != errno.EEXIST:
             raise e
 
 def main():
