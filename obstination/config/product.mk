@@ -17,7 +17,7 @@ TARGET_CPU := p7
 TARGET_CROSS := /usr/bin/arm-linux-gnueabi-
 
 # Add Base skeleton
-TARGET_SKEL_DIRS += $(COMMON_DIR)/../skel
+TARGET_SKEL_DIRS += $(COMMON_DIR)/skel
 TARGET_SKEL_DIRS += $(OBSTINATION_CONFIG_DIR)/../skel
 
 # TODO understand the next two
