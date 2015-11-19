@@ -14,7 +14,8 @@ _libc_fix_missing := \
 	libstdc++.so.6 \
 	ld-linux.so.3 \
 	libdl.so.2 \
-	librt.so.1
+	librt.so.1 \
+	libgcc_s.so.1
 
 _libc_fix_missing_staging := \
 	$(foreach __f,$(_libc_fix_missing),$(TARGET_OUT_STAGING)/lib/$(__f) \
@@ -31,5 +32,4 @@ $(_libc_fix_build_dir)/$(LOCAL_MODULE_FILENAME): $(_libc_fix_missing_staging)
 
 LOCAL_CLEAN_FILES += $(_libc_fix_missing_staging)
 
-# Prebuilt so it is always enabled and does not appear in config
-include $(BUILD_PREBUILT)
+include $(BUILD_CUSTOM)
