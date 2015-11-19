@@ -1,4 +1,4 @@
-# add missing libc files to
+# add missing libc files to the rootfs
 
 LOCAL_PATH := $(call my-dir)
 
@@ -24,12 +24,11 @@ _libc_fix_missing_staging := \
 _libc_fix_build_dir := $(call local-get-build-dir)
 
 $(_libc_fix_missing_staging):
-	(target=$$($(TARGET_CROSS)gcc -print-file-name=$(notdir $@)); \
-	$(PRIVATE_PATH)/install.py $@ $${target})
+	$(Q) (target=$$($(TARGET_CROSS)gcc -print-file-name=$(notdir $@)); \
+		$(PRIVATE_PATH)/install.py $@ $${target})
 
-# Register 'installed' file in build system
 $(_libc_fix_build_dir)/$(LOCAL_MODULE_FILENAME): $(_libc_fix_missing_staging)
 
 LOCAL_CLEAN_FILES += $(_libc_fix_missing_staging)
 
-include $(BUILD_CUSTOM)
+include $(BUILD_PREBUILT)
