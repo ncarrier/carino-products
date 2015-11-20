@@ -1,0 +1,16 @@
+::sysinit:/bin/mount -a
+::sysinit:/etc/init.d/rcS
+
+::askfirst:-/bin/sh
+::respawn:/sbin/syslogd -nK
+/dev/kmsg::respawn:/usr/bin/adbd
+/dev/null::respawn:/sbin/udhcpd -f /etc/udhcpd.conf -S
+/dev/kmsg::respawn:/bin/nc -kl -p28259 -e /bin/car
+/dev/kmsg::respawn:/sbin/httpd -v -h /var/www/ -f
+
+::restart:/sbin/init
+
+# TODO check what follows works and is needed
+::ctrlaltdel:/sbin/reboot
+::shutdown:/bin/umount -a -r
+::shutdown:/sbin/swapoff -a

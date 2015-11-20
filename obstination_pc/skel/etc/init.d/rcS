@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+mkdir -p /tmp/lib/misc
+touch /tmp/lib/misc/udhcpd.leases
+mkdir -p /dev/pts
+
+mount devpts /dev/pts -t devpts
+
+/sbin/ip address add 127.0.0.1/8 scope host dev lo
+/sbin/ip link set up lo
+
+
