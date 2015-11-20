@@ -37,6 +37,8 @@ TARGET_IMAGE_OPTIONS := --size 60M
 custom.busybox.config := $(COMMON_DIR)/config/busybox.config
 LINUX_CONFIG_FILE := $(OBSTINATION_PC_CONFIG_DIR)/linux.config
 
+# tell alchemy we want to build a user mode linux kernel
+TARGET_LINUX_ARCH := um
 
 # TODO reenable when logwrapping will be useful
 #RELOG_FORCE_DEFAULT_OUTPUT_TO := /dev/ulog_main
