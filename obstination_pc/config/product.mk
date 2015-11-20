@@ -22,7 +22,6 @@ TARGET_CPU :=
 # Add Base skeleton
 TARGET_SKEL_DIRS += $(COMMON_DIR)/skel
 TARGET_SKEL_DIRS += $(OBSTINATION_PC_CONFIG_DIR)/../skel
-$(warning $(TARGET_SKEL_DIRS))
 # TODO understand the next two
 # Activate .alchemy.depends section generation
 TARGET_ADD_DEPENDS_SECTION := 1
