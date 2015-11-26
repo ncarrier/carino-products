@@ -15,6 +15,7 @@ _libc_fix_missing := \
 	ld-linux.so.3 \
 	libdl.so.2 \
 	librt.so.1 \
+	libresolv.so.2 \
 	libgcc_s.so.1
 
 _libc_fix_missing_staging := \
