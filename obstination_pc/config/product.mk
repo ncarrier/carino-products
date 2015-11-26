@@ -11,11 +11,13 @@ TARGET_OS_FLAVOUR := native-chroot
 TARGET_LIBC := native
 # Detect the host architecture to set the right TARGET_ARCH.
 ifeq ($(shell getconf LONG_BIT),32)
-    TARGET_ARCH := x86
-    LINUX_DEFAULT_CONFIG_TARGET := i86_defconfig
+TARGET_ARCH := x86
+LINUX_DEFAULT_CONFIG_TARGET := i86_defconfig
+OPENSSL_CONFIG_NAME := linux-generic32
 else
-    TARGET_ARCH := x64
-    LINUX_DEFAULT_CONFIG_TARGET := x86_64_defconfig
+TARGET_ARCH := x64
+LINUX_DEFAULT_CONFIG_TARGET := x86_64_defconfig
+OPENSSL_CONFIG_NAME := linux-x86_64
 endif
 TARGET_CPU :=
 
