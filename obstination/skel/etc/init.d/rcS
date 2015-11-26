@@ -2,6 +2,8 @@
 
 set -e
 
+itf=wlan0
+
 mkdir -p /tmp/lib/misc
 touch /tmp/lib/misc/udhcpd.leases
 mkdir -p /dev/pts
@@ -11,9 +13,9 @@ mount devpts /dev/pts -t devpts
 /sbin/ip address add 127.0.0.1/8 scope host dev lo
 /sbin/ip link set up lo
 
-# (re-)configure wlan0 in case hotplug call was attempted before rootfs was ok
-if [ -e "/sys/class/net/wlan0" ]; then
-	SUBSYSTEM="net" ACTION="add" INTERFACE="wlan0" /bin/config_network
+# (re-)configure ${itf} in case hotplug call was attempted before rootfs was ok
+if [ -e "/sys/class/net/${itf}" ]; then
+	SUBSYSTEM="net" ACTION="add" INTERFACE="${itf}" /bin/config_network
 fi
 
 # make the led on pin 13 blink

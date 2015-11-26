@@ -2,6 +2,8 @@
 
 set -e
 
+itf=eth0
+
 mkdir -p /tmp/lib/misc
 touch /tmp/lib/misc/udhcpd.leases
 mkdir -p /dev/pts
@@ -10,5 +12,10 @@ mount devpts /dev/pts -t devpts
 
 /sbin/ip address add 127.0.0.1/8 scope host dev lo
 /sbin/ip link set up lo
+
+# (re-)configure ${itf} in case hotplug call was attempted before rootfs was ok
+if [ -e "/sys/class/net/${itf}" ]; then
+	SUBSYSTEM="net" ACTION="add" INTERFACE="${itf}" /bin/config_network
+fi
 
 
