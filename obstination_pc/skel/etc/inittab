@@ -1,7 +1,7 @@
 ::sysinit:/bin/mount -a
 ::sysinit:/etc/init.d/rcS
 
-::askfirst:-/bin/sh
+::respawn:-/bin/sh
 ::respawn:/sbin/syslogd -nK
 /dev/kmsg::respawn:/usr/bin/adbd
 /dev/null::respawn:/sbin/udhcpd -f /etc/udhcpd.conf -S
