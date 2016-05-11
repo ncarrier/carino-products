@@ -2,7 +2,10 @@
 
 set -e
 
-itf=eth0
+itf=wlan0
+
+# uml doesn't allow to create an interface named wlan0
+/sbin/ip l set dev eth0 name wlan0
 
 mkdir -p /tmp/lib/misc
 touch /tmp/lib/misc/udhcpd.leases
