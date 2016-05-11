@@ -41,6 +41,8 @@ LINUX_CONFIG_FILE := $(OBSTINATION_PC_CONFIG_DIR)/linux.config
 # tell alchemy we want to build a user mode linux kernel
 TARGET_LINUX_ARCH := um
 
+TARGET_NOSTRIP_FINAL := 1
+
 # TODO reenable when logwrapping will be useful
 #RELOG_FORCE_DEFAULT_OUTPUT_TO := /dev/ulog_main
 #RELOG_FORCE_DEFAULT_ERROR_TO := /dev/ulog_main
